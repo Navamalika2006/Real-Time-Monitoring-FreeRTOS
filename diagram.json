@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "author": "6012_Navamalika.B",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 28.8, "left": 129.64, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 37.1, "left": 19, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 246.2,
+      "left": 0,
+      "attrs": { "color": "green", "xray": "1", "key": "3" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 73.2,
+      "left": -34.6,
+      "attrs": { "color": "red", "flip": "1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 73.2,
+      "left": -63.4,
+      "attrs": { "color": "green", "flip": "1" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 50.4,
+      "left": -142.2,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 205.55,
+      "left": -48,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 224.75,
+      "left": -9.6,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "pot1:GND", "esp:GND.1", "black", [ "v76.8", "h86.25" ] ],
+    [ "pot1:VCC", "esp:3V3", "red", [ "v57.6", "h47.2", "v-115.2" ] ],
+    [ "esp:34", "pot1:SIG", "green", [ "h-28.65", "v86.4", "h-47.6" ] ],
+    [ "led2:A", "r1:1", "green", [ "v67.2", "h-19.2" ] ],
+    [ "esp:GND.1", "led2:C", "black", [ "h-28.65", "v9.6", "h-153.6" ] ],
+    [ "esp:25", "r1:2", "green", [ "h-115.05", "h-8.4" ] ],
+    [ "r2:2", "esp:26", "green", [ "h-10.8", "v-86.4" ] ],
+    [ "r2:1", "led1:A", "green", [ "h-9.6", "v-115.2" ] ],
+    [ "esp:GND.1", "led1:C", "black", [ "h-28.65", "v9.6", "h-115.2" ] ],
+    [ "bz1:2", "esp:14", "green", [ "v28.8", "h230" ] ],
+    [ "esp:GND.1", "bz1:1", "black", [ "h-19.05", "v9.6", "h-230.4" ] ],
+    [ "btn1:1.r", "esp:27", "green", [ "v0" ] ],
+    [ "esp:GND.1", "btn1:2.r", "black", [ "h-19.05", "v9.6" ] ]
+  ],
+  "dependencies": {}
+}
